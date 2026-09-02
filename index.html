@@ -30,12 +30,12 @@
 </style></head><body><div class="wrap">
 
 <h1>US nonfarm payrolls — August 2026 nowcast</h1>
-<div class="meta">Model v2 (candidate) · information set 2 Sep 2026, 12:00 ET ·
+<div class="meta">Model v2 (beta) · using all data published up to 2 Sep 2026, 12:00 ET ·
   BLS release Friday 4 September, 08:30 ET</div>
 
-<div class="flag"><strong>Internal research output.</strong> This model is a candidate, not a
-production forecast. 7 of 8 pre-registered promotion gates
-pass; it is not cleared for publication or external citation.</div>
+<div class="flag"><strong>Beta — internal use only.</strong> This model is still in development.
+It is not an official forecast, and it should not be published or quoted outside the team. The
+figure below is generated automatically and its accuracy is still being tracked month by month.</div>
 
 <div class="hero">+74k</div>
 <div class="sub">Change in nonfarm payrolls, first print as BLS will publish it on
@@ -70,19 +70,24 @@ pass; it is not cleared for publication or external citation.</div>
 <table><thead><tr><th>Month</th><th style="text-align:right">Forecast</th>
   <th style="text-align:right">Actual</th><th style="text-align:right">Miss</th></tr></thead>
 <tbody><tr><td>Feb 2026</td><td style="text-align:right">+102k</td><td style="text-align:right">-92k</td><td style="text-align:right;color:#6F6558">-194k</td></tr><tr><td>Mar 2026</td><td style="text-align:right">+63k</td><td style="text-align:right">+178k</td><td style="text-align:right;color:#6F6558">+115k</td></tr><tr><td>Apr 2026</td><td style="text-align:right">+103k</td><td style="text-align:right">+115k</td><td style="text-align:right;color:#6F6558">+12k</td></tr><tr><td>May 2026</td><td style="text-align:right">+102k</td><td style="text-align:right">+172k</td><td style="text-align:right;color:#6F6558">+70k</td></tr><tr><td>Jun 2026</td><td style="text-align:right">+129k</td><td style="text-align:right">+57k</td><td style="text-align:right;color:#6F6558">-72k</td></tr><tr><td>Jul 2026</td><td style="text-align:right">+111k</td><td style="text-align:right">-23k</td><td style="text-align:right;color:#6F6558">-134k</td></tr></tbody></table>
-<p>Against the last 139 comparable months this stack has the lowest recent-window error of all 18 models tested (RMSE 88k) and its stated intervals hold up: 80% of outcomes landed inside the 80% band and 90% inside the 90% band.</p>
+<p class="note">We tested all 18 models on 139 past months. Over the most recent stretch the combined forecast was the most accurate of them, with a typical miss of about 88k. Its error bands have also proved honest: 80% of outcomes fell inside the 80% band and 90% inside the 90% band — very close to what those labels promise.</p>
 
 <h2>Other target definitions</h2>
 <table><thead><tr><th>Definition</th><th style="text-align:right">Estimate</th>
-  <th>Status</th></tr></thead><tbody><tr><td>Third Print</td><td style="text-align:right">+103k</td><td style="color:#B03A2E">uncalibrated — do not use</td></tr><tr><td>Once Benchmarked</td><td style="text-align:right">+75k</td><td style="color:#B03A2E">uncalibrated — do not use</td></tr></tbody></table>
-<p class="note">Only the first-print figure above is calibrated. The third-print and benchmarked
-  estimates have no validated history at this horizon yet, and their current ordering contradicts
-  the observed pattern of downward revisions. They are shown for completeness and should not be
-  quoted.</p>
+  <th>Status</th></tr></thead><tbody><tr><td>Third Print</td><td style="text-align:right">+103k</td><td style="color:#B03A2E">not reliable yet — please ignore</td></tr><tr><td>Once Benchmarked</td><td style="text-align:right">+75k</td><td style="color:#B03A2E">not reliable yet — please ignore</td></tr></tbody></table>
+<p class="note">Payrolls get revised twice after the first print, and again at the annual
+  benchmark. We are building estimates of those later figures too, but they are not working yet —
+  they currently imply almost no downward revision, which runs against everything the recent data
+  show. Shown for completeness only. The headline figure at the top is the one to use.</p>
 
-<h2>Promotion gates</h2>
-<table><thead><tr><th>Gate</th><th>Status</th><th>Evidence</th></tr></thead>
-<tbody><tr><td>historical validation available</td><td style="color:#3C9147;font-weight:600">PASS</td><td style="color:#6F6558">matching first-print/horizon v2 score file present</td></tr><tr><td>complete configured window</td><td style="color:#3C9147;font-weight:600">PASS</td><td style="color:#6F6558">full configured window</td></tr><tr><td>minimum oos history</td><td style="color:#3C9147;font-weight:600">PASS</td><td style="color:#6F6558">n=199; threshold=36</td></tr><tr><td>beats strongest baseline rmse composite</td><td style="color:#3C9147;font-weight:600">PASS</td><td style="color:#6F6558">stack=0.56; strongest baseline=0.58</td></tr><tr><td>interval 90 calibration</td><td style="color:#3C9147;font-weight:600">PASS</td><td style="color:#6F6558">exact binomial p=1</td></tr><tr><td>required caches fresh</td><td style="color:#3C9147;font-weight:600">PASS</td><td style="color:#6F6558">release_calendar=0d; true_vintages=0.03d; tier2_snapshots=0d; qcew=63.97d</td></tr><tr><td>independent family quorum</td><td style="color:#3C9147;font-weight:600">PASS</td><td style="color:#6F6558">successful families=6; threshold=3</td></tr><tr><td>two shadow releases</td><td style="color:#B03A2E;font-weight:600">NOT MET</td><td style="color:#6F6558">distinct completed shadow months=1; threshold=2</td></tr></tbody></table>
+<h2>What goes into the forecast</h2>
+<table><thead><tr><th style="width:34%">Input</th><th>What it tells the model</th></tr></thead>
+<tbody><tr><td><strong>Weekly jobless claims</strong><br><span style="color:#6F6558">3 series · weekly</span></td><td>New and continuing claims for unemployment benefit — the fastest read on layoffs.</td></tr><tr><td><strong>ADP private payrolls</strong><br><span style="color:#6F6558">2 series · weekly + monthly</span></td><td>A payroll processor's own count of private employment, out two days before BLS.</td></tr><tr><td><strong>Regional Fed business surveys</strong><br><span style="color:#6F6558">5 series · monthly</span></td><td>Firms in the Philadelphia, New York and Dallas Fed districts report whether they are hiring, covering both manufacturing and services.</td></tr><tr><td><strong>JOLTS labour-market flows</strong><br><span style="color:#6F6558">4 series · monthly</span></td><td>Job openings, hires, quits and layoffs. Published with a lag, so it sets the trend rather than the current month.</td></tr><tr><td><strong>Weekly Economic Index</strong><br><span style="color:#6F6558">1 series · weekly</span></td><td>A broad weekly gauge of US activity, used as general economic context.</td></tr><tr><td><strong>Related BLS series</strong><br><span style="color:#6F6558">2 series · monthly</span></td><td>Temporary-help employment and the unemployment rate. These arrive with the payroll report itself, so only earlier months are ever used.</td></tr></tbody></table>
+<p class="note">Everything above is public data from FRED, the BLS and the regional Federal Reserve
+  banks, with one exception: when a public feed is slow to update we take that same series from our
+  Haver subscription so the forecast is not held up. Alongside these inputs the models use the
+  payroll history itself, always as it stood on the day — never the later revised figures — so the
+  model is never tested on information it could not have had at the time.</p>
 
 <footer>
   Run <code>20260902T144722Z_985b53ed</code> · snapshot <code>9a9dc94925da4c14…</code> ·
